@@ -2,8 +2,6 @@ package com.twave.myapplication.Controller.Exception;
 
 /**
  * 上传文件时读写异常
- *
- * @author TWAVE
  */
 public class FileUploadIOException extends FileUploadException {
     public FileUploadIOException() {
