@@ -1,16 +1,11 @@
 package com.twave.myapplication.Controller;
 
-import com.twave.myapplication.Controller.Exception.FileEmptyException;
-import com.twave.myapplication.Controller.Exception.FileSizeException;
-import com.twave.myapplication.Controller.Exception.FileStateException;
-import com.twave.myapplication.Controller.Exception.FileTypeException;
+import com.twave.myapplication.Controller.Exception.*;
 import com.twave.myapplication.Service.Exception.ServiceException;
 import com.twave.myapplication.Util.JSONResult;
 import org.apache.tomcat.util.http.fileupload.impl.FileUploadIOException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.nio.file.AccessDeniedException;
 
 /**
  * 所有Controller的基类
@@ -29,7 +24,7 @@ public class BaseController {
      * -@ExceptionHandler注解用于描述当前方法可以处理哪些异常
      * 这个注解可以接受一个列表
      */
-    @ExceptionHandler({ServiceException.class, FileUploadIOException.class})
+    @ExceptionHandler({ServiceException.class, FileUploadIOException.class, UnknownHostException.class})
     public JSONResult<Void> handleException(Throwable e) {
         JSONResult<Void> result = new JSONResult<>();
         if (e instanceof FileEmptyException) {
@@ -47,6 +42,9 @@ public class BaseController {
         } else if (e instanceof FileUploadIOException) {
             result.setState(6004);
             result.setMessage("无法上传文件");
+        } else if (e instanceof UnknownHostException) {
+            result.setState(6005);
+            result.setMessage("服务器连接失败");
         }
         return result;
     }
