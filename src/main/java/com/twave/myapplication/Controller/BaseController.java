@@ -70,14 +70,4 @@ public class BaseController {
         }
         return result;
     }
-
-    // 扫描获取指定包名下的所有异常类
-    private static Set<Class<? extends Throwable>> getExceptionClasses(String packageName) {
-
-        Set<Class<? extends Throwable>> classSet = new HashSet<>();
-
-        // 扫描代码获取包名下所有异常类
-
-        return classSet;
-    }
 }

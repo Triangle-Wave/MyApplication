@@ -19,7 +19,7 @@ import java.io.IOException;
  * @date : 2023/7/14 16:54
  */
 @CrossOrigin
-@Controller
+@RestController
 @RequestMapping("file")
 public class FileController extends BaseController {
     @Autowired
