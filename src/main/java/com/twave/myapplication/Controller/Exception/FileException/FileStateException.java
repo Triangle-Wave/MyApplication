@@ -1,9 +1,9 @@
-package com.twave.myapplication.Controller.Exception;
+package com.twave.myapplication.Controller.Exception.FileException;
 
 /**
  * 上传的文件状态异常
  */
-public class FileStateException extends FileUploadException {
+public class FileStateException extends FileException {
     public FileStateException() {
         super();
     }

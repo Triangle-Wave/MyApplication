@@ -1,11 +1,11 @@
-package com.twave.myapplication.Controller.Exception;
+package com.twave.myapplication.Controller.Exception.FileException;
 
 /**
  * 上传的文件为空的异常，
  * 例如没有选择上传的文件就提交了表单
  * 或选择的文件是0字节的空文件
  */
-public class FileEmptyException extends FileUploadException {
+public class FileEmptyException extends FileException {
     public FileEmptyException() {
         super();
     }

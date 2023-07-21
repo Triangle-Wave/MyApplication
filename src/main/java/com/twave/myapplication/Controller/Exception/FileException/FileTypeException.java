@@ -1,9 +1,9 @@
-package com.twave.myapplication.Controller.Exception;
+package com.twave.myapplication.Controller.Exception.FileException;
 
 /**
  * 上传的文件类型超出了限制
  */
-public class FileTypeException extends FileUploadException {
+public class FileTypeException extends FileException {
     public FileTypeException() {
         super();
     }
