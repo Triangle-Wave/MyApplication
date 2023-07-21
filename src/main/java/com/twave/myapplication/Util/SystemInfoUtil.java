@@ -190,7 +190,7 @@ public class SystemInfoUtil {
     }
 
     /**
-     * 单位专函
+     * 单位转换
      *
      * @param byteNumber 字节数
      * @return 格式化后的结果(KB 、 MB 、 GB 、 TB)

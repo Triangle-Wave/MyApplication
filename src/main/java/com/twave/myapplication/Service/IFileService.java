@@ -3,6 +3,9 @@ package com.twave.myapplication.Service;
 import com.twave.myapplication.Util.JSONResult;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author : twave
  * @date : 2023/7/14 17:01
@@ -15,4 +18,6 @@ public interface IFileService {
      * @return 状态值
      */
     JSONResult<String> uploadFile(MultipartFile file);
+
+    void downloadFile(HttpServletResponse response, String fileName);
 }

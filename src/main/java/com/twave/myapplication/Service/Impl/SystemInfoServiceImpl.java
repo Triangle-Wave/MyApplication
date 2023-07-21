@@ -1,7 +1,7 @@
 package com.twave.myapplication.Service.Impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.twave.myapplication.Controller.Exception.UnknownHostException;
+import com.twave.myapplication.Controller.Exception.HostException.UnknownHostException;
 import com.twave.myapplication.Service.ISystemInfoService;
 import com.twave.myapplication.Util.SystemInfoUtil;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class SystemInfoServiceImpl implements ISystemInfoService {
      * 获取系统全部信息
      */
     @Override
-    public JSONObject getSystemInfo() throws UnknownHostException {
+    public JSONObject getSystemInfo(){
         JSONObject info;
         try {
             info = systemInfoUtil.getInfo();

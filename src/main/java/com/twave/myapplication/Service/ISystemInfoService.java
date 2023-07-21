@@ -13,5 +13,5 @@ public interface ISystemInfoService {
     /**
      * 获取系统全部信息
      */
-    JSONObject getSystemInfo() throws UnknownHostException;
+    JSONObject getSystemInfo();
 }

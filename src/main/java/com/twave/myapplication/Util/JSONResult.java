@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * 使用JSON格式的数据进行响应
+ *
  * @author TWAVE
  */
 public class JSONResult<E> implements Serializable {
@@ -11,7 +12,7 @@ public class JSONResult<E> implements Serializable {
     private Integer state;
     // 描述信息
     private String message;
-    // 用泛型来表示数据，因为不确定有没有
+    // 用泛型来表示数据，因为不确定其类型
     private E data;
 
     // 无参构造方法

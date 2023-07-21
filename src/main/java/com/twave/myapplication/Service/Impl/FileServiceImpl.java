@@ -1,16 +1,19 @@
 package com.twave.myapplication.Service.Impl;
 
-import com.twave.myapplication.Controller.Exception.FileEmptyException;
-import com.twave.myapplication.Controller.Exception.FileSizeException;
-import com.twave.myapplication.Controller.Exception.FileStateException;
-import com.twave.myapplication.Controller.Exception.FileUploadIOException;
+import com.twave.myapplication.Controller.Exception.FileException.*;
 import com.twave.myapplication.Service.IFileService;
 import com.twave.myapplication.Util.JSONResult;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -26,7 +29,9 @@ public class FileServiceImpl implements IFileService {
     String savePath;
 
     /**
-     * 上传文件接口
+     * 上传文件的Service层代码<p>
+     * Controller调用该方法实现将前端上传的文件存放到文件夹的指定位置<p>
+     * FileStateException是自定义的异常类
      *
      * @param file 上传的文件
      * @return 状态值
@@ -50,10 +55,37 @@ public class FileServiceImpl implements IFileService {
         try {
             file.transferTo(dest);
         } catch (IOException e) {
-            throw new FileUploadIOException("文件读写异常");
+            throw new FileNotExistException("文件读写异常");
         } catch (FileStateException e) {
             throw new FileStateException("文件状态异常");
         }
         return new JSONResult<>(200, "文件上传成功");
+    }
+
+    /**
+     * 下载文件的Service层代码<p>
+     * Controller调用该方法实现文件下载
+     *
+     * @param fileName 文件名
+     * @return
+     */
+    @Override
+    public void downloadFile(HttpServletResponse response, String fileName) {
+        File file = new File(savePath + "\\" + fileName);
+        // 从文件中获取输入流
+        FileInputStream fis;
+        try {
+            fis = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            throw new FileNotExistException("文件不存在");
+        }
+        response.setContentType("application/force-download");
+        response.addHeader("Content-Disposition", "attachment;fileName=" + fileName);
+        // 将文件的输入流复制到http响应的输入流中
+        try {
+            IOUtils.copy(fis, response.getOutputStream());
+        } catch (IOException e) {
+            throw new FileIoException("文件读写异常");
+        }
     }
 }
