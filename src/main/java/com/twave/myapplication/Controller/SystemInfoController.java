@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+import static com.twave.myapplication.Constants.Constants.REQUEST_SUCCESS;
+
 /**
  * 获取系统运行信息
  *

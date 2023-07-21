@@ -2,15 +2,13 @@ package com.twave.myapplication.Controller;
 
 import com.twave.myapplication.Service.Impl.FileServiceImpl;
 import com.twave.myapplication.Util.JSONResult;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import static com.twave.myapplication.Constants.Constants.*;
 
 /**
  * 上传文件的Controller

@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,14 +15,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
+import static com.twave.myapplication.Constants.Constants.*;
+
 /**
  * @author : twave
  * @date : 2023/7/14 17:03
  */
 @Service
 public class FileServiceImpl implements IFileService {
-    public static final int FILE_MAXSIZE = 200 * 1024 * 1024;
-
     @Value("${file.uploadPath}")
     String savePath;
 

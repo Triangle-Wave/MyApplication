@@ -1,16 +1,11 @@
 package com.twave.myapplication.Controller;
 
 import com.twave.myapplication.Controller.Exception.FileException.*;
-import com.twave.myapplication.Controller.Exception.HostException.*;
-import com.twave.myapplication.Service.Exception.ServiceException;
+import com.twave.myapplication.Controller.Exception.HostException.UnknownHostException;
 import com.twave.myapplication.Util.JSONResult;
-import org.apache.tomcat.util.http.fileupload.impl.FileUploadIOException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import static com.twave.myapplication.Constants.Constants.*;
 
 
 /**
@@ -20,8 +15,7 @@ import java.util.Set;
  * @date : 2023/7/14 16:44
  */
 public class BaseController {
-    // 定义一个请求成功的状态码
-    public static final int REQUEST_SUCCESS = 200;
+
 
     /**
      * 请求处理方法，这个方法的返回值就是需要传递给前端的数据
@@ -30,11 +24,6 @@ public class BaseController {
      * -@ExceptionHandler注解用于描述当前方法可以处理哪些异常
      * 这个注解可以接受一个列表
      */
-    // @ExceptionHandler({
-    //         ServiceException.class,
-    //         FileUploadIOException.class,
-    //         UnknownHostException.class
-    // })
     @ExceptionHandler({
             FileEmptyException.class,
             FileSizeException.class,
@@ -47,25 +36,25 @@ public class BaseController {
     public JSONResult<Void> handleException(Throwable e) {
         JSONResult<Void> result = new JSONResult<>();
         if (e instanceof FileEmptyException) {
-            result.setState(6000);
+            result.setState(FILE_EMPTY);
             result.setMessage("上传的文件为空");
         } else if (e instanceof FileSizeException) {
-            result.setState(6001);
+            result.setState(FILE_SIZE_EXCEED);
             result.setMessage("文件过大");
         } else if (e instanceof FileTypeException) {
-            result.setState(6002);
+            result.setState(FILE_TYPE_UNSUPPORT);
             result.setMessage("文件类型错误");
         } else if (e instanceof FileStateException) {
-            result.setState(6003);
+            result.setState(FILE_STATE_ERROR);
             result.setMessage("文件状态错误");
         } else if (e instanceof UnknownHostException) {
-            result.setState(6005);
+            result.setState(UNKNOW_HOST);
             result.setMessage("服务器连接失败");
         } else if (e instanceof FileNotExistException) {
-            result.setState(6006);
+            result.setState(FILE_NOT_EXIST);
             result.setMessage("文件不存在");
         } else if (e instanceof FileIoException) {
-            result.setState(6007);
+            result.setState(FILE_IO_EXCEPTION);
             result.setMessage("文件读写异常");
         }
         return result;
