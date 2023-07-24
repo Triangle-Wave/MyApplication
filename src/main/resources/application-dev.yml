@@ -8,8 +8,13 @@ spring:
       max-file-size: 200MB
       max-request-size: 200MB
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
   redis:
 
     lettuce:
@@ -23,10 +28,13 @@ spring:
 file:
   uploadPath: F:\\MyProjects\\Test\\source
 mybatis:
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰命名转换
+    mapped-statements-ordered: true # 开启查询返回Map结果有序
   mapper-locations: classpath:mapper/*.xml    # mapper映射文件位置
-  config-location: classpath:configs/mybatis.conf.xml # mybatis配置文件所在路径
-  type-aliases-package: com.example.spks.component # 所有Entity别名类所在包
-##服务器上使用 /home/Files 路径
-#file.address.service=/home/Files
-##本地使用 E://Projects/springBoot/upload 路径
-#file.address.service=E://Projects/springBoot/upload
+#  config-location: classpath:configs/mybatis.conf.xml # mybatis配置文件所在路径
+  type-aliases-package: com.twave.myapplication.Entity # 所有Entity别名类所在包
+logging:
+  level:
+    root: info
+    com.twave.myapplication: debug
