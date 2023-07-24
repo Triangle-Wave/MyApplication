@@ -1,6 +1,6 @@
 package com.twave.myapplication.service.impl;
 
-import com.twave.myapplication.controller.Exception.lockException.LockUsedException;
+import com.twave.myapplication.controller.exception.lockException.LockUsedException;
 import com.twave.myapplication.mapper.MailMapper;
 import com.twave.myapplication.service.ISendMailService;
 import org.springframework.stereotype.Service;

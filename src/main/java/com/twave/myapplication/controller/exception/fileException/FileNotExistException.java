@@ -1,4 +1,4 @@
-package com.twave.myapplication.controller.Exception.FileException;
+package com.twave.myapplication.controller.exception.fileException;
 
 /**
  * 文件不存在异常

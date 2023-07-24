@@ -1,4 +1,4 @@
-package com.twave.myapplication.controller.Exception.FileException;
+package com.twave.myapplication.controller.exception.fileException;
 
 /**
  * 上传的文件类型超出了限制

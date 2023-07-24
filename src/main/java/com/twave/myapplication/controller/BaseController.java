@@ -1,8 +1,8 @@
 package com.twave.myapplication.controller;
 
-import com.twave.myapplication.controller.Exception.FileException.*;
-import com.twave.myapplication.controller.Exception.HostException.UnknownHostException;
-import com.twave.myapplication.controller.Exception.lockException.LockUsedException;
+import com.twave.myapplication.controller.exception.fileException.*;
+import com.twave.myapplication.controller.exception.hostException.UnknownHostException;
+import com.twave.myapplication.controller.exception.lockException.LockUsedException;
 import com.twave.myapplication.util.JSONResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 

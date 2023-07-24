@@ -1,4 +1,4 @@
-package com.twave.myapplication.controller.Exception.lockException;
+package com.twave.myapplication.controller.exception.lockException;
 
 /**
  * 锁被占用异常

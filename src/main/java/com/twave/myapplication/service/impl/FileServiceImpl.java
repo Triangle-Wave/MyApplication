@@ -1,6 +1,6 @@
 package com.twave.myapplication.service.impl;
 
-import com.twave.myapplication.controller.Exception.FileException.*;
+import com.twave.myapplication.controller.exception.fileException.*;
 import com.twave.myapplication.service.IFileService;
 import com.twave.myapplication.util.JSONResult;
 import org.apache.tomcat.util.http.fileupload.IOUtils;

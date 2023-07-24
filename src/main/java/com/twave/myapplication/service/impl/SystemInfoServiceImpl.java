@@ -1,7 +1,7 @@
 package com.twave.myapplication.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.twave.myapplication.controller.Exception.HostException.UnknownHostException;
+import com.twave.myapplication.controller.exception.hostException.UnknownHostException;
 import com.twave.myapplication.service.ISystemInfoService;
 import com.twave.myapplication.util.SystemInfoUtil;
 import org.springframework.stereotype.Service;

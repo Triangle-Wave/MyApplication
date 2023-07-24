@@ -1,4 +1,4 @@
-package com.twave.myapplication.controller.Exception.HostException;
+package com.twave.myapplication.controller.exception.hostException;
 
 /**
  * @author : twave
