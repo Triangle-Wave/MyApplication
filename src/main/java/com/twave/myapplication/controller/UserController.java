@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import static com.twave.myapplication.constants.Constants.REQUEST_SUCCESS;
+import static com.twave.myapplication.constants.StatusCode.REQUEST_SUCCESS;
 
 /**
  * @author TWAVE

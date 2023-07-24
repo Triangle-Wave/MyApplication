@@ -5,7 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.twave.myapplication.entity.User;
 import com.twave.myapplication.mapper.UserMapper;
-import com.twave.myapplication.service.UserService;
+import com.twave.myapplication.service.IUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,7 +17,7 @@ import java.util.List;
  * @createDate 2023-07-22 16:53:55
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 
     // 注入Mapper接口对象
     @Resource
