@@ -4,7 +4,7 @@ package com.twave.myapplication.constants;
  * @author : twave
  * @date : 2023/7/21 11:24
  */
-public class Constants {
+public class StatusCode {
     /**
      * 上传文件的最大大小，200MB
      */
@@ -42,5 +42,9 @@ public class Constants {
      * 文件读写异常
      */
     public static final int FILE_IO_EXCEPTION = 6007;
+    /**
+     * 锁已被占用
+     */
+    public static final int LOCK_USED = 6008;
 
 }
