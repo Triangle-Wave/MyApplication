@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 
-import static com.twave.myapplication.constants.Constants.*;
+import static com.twave.myapplication.constants.StatusCode.*;
 
 /**
  * 上传文件的Controller

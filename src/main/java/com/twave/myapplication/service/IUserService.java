@@ -8,7 +8,7 @@ import com.twave.myapplication.entity.User;
  * @description 针对表【tb_user】的数据库操作Service
  * @createDate 2023-07-22 16:53:55
  */
-public interface UserService {
+public interface IUserService {
     /**
      * 获取所有用户
      *

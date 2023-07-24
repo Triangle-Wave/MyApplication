@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
-import static com.twave.myapplication.constants.Constants.*;
+import static com.twave.myapplication.constants.StatusCode.*;
 
 /**
  * @author : twave
