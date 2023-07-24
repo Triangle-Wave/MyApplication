@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.twave.myapplication.Mapper.UserMapper">
+<mapper namespace="com.twave.myapplication.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="com.twave.myapplication.Entity.User">
+    <resultMap id="BaseResultMap" type="com.twave.myapplication.entity.User">
         <id property="id" column="id" jdbcType="BIGINT"/>
         <result property="phone" column="phone" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
@@ -20,7 +20,7 @@
         nick_name,icon,create_time,
         update_time
     </sql>
-    <select id="getAllUser" resultType="com.twave.myapplication.Entity.User">
+    <select id="getAllUser" resultType="com.twave.myapplication.entity.User">
         SELECT phone, nick_name, icon
         FROM tb_user
         <where>
