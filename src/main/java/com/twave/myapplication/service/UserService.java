@@ -1,8 +1,7 @@
 package com.twave.myapplication.service;
 
+import com.github.pagehelper.PageInfo;
 import com.twave.myapplication.entity.User;
-
-import java.util.List;
 
 /**
  * @author TWAVE
@@ -15,6 +14,6 @@ public interface UserService {
      *
      * @return 所有用户的列表
      */
-    List<User> getAllUser(String phone, String nickName);
+    PageInfo<User> getAllUser(String phone, String nickName, int pageNum, int pageSize);
 
 }

@@ -1,13 +1,15 @@
 package com.twave.myapplication.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.twave.myapplication.entity.User;
 import com.twave.myapplication.service.impl.UserServiceImpl;
 import com.twave.myapplication.util.JSONResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-
-import java.util.List;
 
 import static com.twave.myapplication.constants.Constants.REQUEST_SUCCESS;
 
@@ -32,11 +34,13 @@ public class UserController {
      * @return 满足条件的用户列表
      */
     @GetMapping("/getuser")
-    JSONResult<List<User>> getUser(
+    JSONResult<PageInfo<User>> getUser(
             @RequestParam(value = "phone", defaultValue = "") String phone,
-            @RequestParam(value = "nickName", defaultValue = "") String nickName
+            @RequestParam(value = "nickName", defaultValue = "") String nickName,
+            @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+            @RequestParam(value = "pageSize", defaultValue = "10") int pageSize
     ) {
-        List<User> allUser = userService.getAllUser(phone, nickName);
+        PageInfo<User> allUser = userService.getAllUser(phone, nickName, pageNum, pageSize);
         return new JSONResult<>(REQUEST_SUCCESS, allUser);
     }
 }

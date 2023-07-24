@@ -1,13 +1,14 @@
 package com.twave.myapplication.service.impl;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.twave.myapplication.entity.User;
-import com.twave.myapplication.service.UserService;
 import com.twave.myapplication.mapper.UserMapper;
+import com.twave.myapplication.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,11 +32,13 @@ public class UserServiceImpl implements UserService {
      * @return 满足条件的用户列表
      */
     @Override
-    public List<User> getAllUser(String phone, String nickName) {
+    public PageInfo<User> getAllUser(String phone, String nickName, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         if (phone.length() == 0 && nickName.length() == 0) {
-            return new ArrayList<>();
+            return new PageInfo<>();
         }
-        return userMapper.getAllUser(phone, nickName);
+        List<User> allUser = userMapper.getAllUser(phone, nickName);
+        return new PageInfo<>(allUser);
     }
 }
 
