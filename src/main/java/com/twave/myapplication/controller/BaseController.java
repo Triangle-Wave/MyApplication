@@ -2,10 +2,11 @@ package com.twave.myapplication.controller;
 
 import com.twave.myapplication.controller.Exception.FileException.*;
 import com.twave.myapplication.controller.Exception.HostException.UnknownHostException;
+import com.twave.myapplication.controller.Exception.lockException.LockUsedException;
 import com.twave.myapplication.util.JSONResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import static com.twave.myapplication.constants.Constants.*;
+import static com.twave.myapplication.constants.StatusCode.*;
 
 
 /**
@@ -32,6 +33,7 @@ public class BaseController {
             UnknownHostException.class,
             FileNotExistException.class,
             FileIoException.class,
+            LockUsedException.class
     })
     public JSONResult<Void> handleException(Throwable e) {
         JSONResult<Void> result = new JSONResult<>();
@@ -56,6 +58,9 @@ public class BaseController {
         } else if (e instanceof FileIoException) {
             result.setState(FILE_IO_EXCEPTION);
             result.setMessage("文件读写异常");
+        } else if (e instanceof LockUsedException) {
+            result.setState(LOCK_USED);
+            result.setMessage("锁已被占用");
         }
         return result;
     }
