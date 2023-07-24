@@ -28,7 +28,7 @@
                 phone = #{phone}
             </if>
             <if test="nickName != null and nickName!=''">
-                AND nick_name = #{nickName}
+                OR nick_name like CONCAT('%',#{nickName},'%')
             </if>
         </where>
     </select>

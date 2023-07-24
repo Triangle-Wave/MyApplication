@@ -15,9 +15,9 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     /**
-     * 获取所有用户
+     * 获取符合条件的所有用户
      *
-     * @return 所有用户的列表
+     * @return 用户列表
      */
     List<User> getAllUser(
             @Param("phone") String phone,
