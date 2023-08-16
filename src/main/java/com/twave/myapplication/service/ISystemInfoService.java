@@ -1,6 +1,6 @@
 package com.twave.myapplication.service;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 
 /**
  * @author : twave

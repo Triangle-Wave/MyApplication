@@ -1,6 +1,6 @@
 package com.twave.myapplication.service.impl;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.twave.myapplication.controller.exception.hostException.UnknownHostException;
 import com.twave.myapplication.service.ISystemInfoService;
 import com.twave.myapplication.util.SystemInfoUtil;
@@ -21,7 +21,7 @@ public class SystemInfoServiceImpl implements ISystemInfoService {
      * 获取系统全部信息
      */
     @Override
-    public JSONObject getSystemInfo(){
+    public JSONObject getSystemInfo() {
         JSONObject info;
         try {
             info = systemInfoUtil.getInfo();
@@ -31,4 +31,5 @@ public class SystemInfoServiceImpl implements ISystemInfoService {
         }
         return info;
     }
+
 }

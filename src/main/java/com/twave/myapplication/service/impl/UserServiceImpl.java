@@ -37,6 +37,7 @@ public class UserServiceImpl implements IUserService {
         if (phone.length() == 0 && nickName.length() == 0) {
             return new PageInfo<>();
         }
+
         List<User> allUser = userMapper.getAllUser(phone, nickName);
         return new PageInfo<>(allUser);
     }

@@ -60,7 +60,7 @@ public class BaseController {
             result.setMessage("文件读写异常");
         } else if (e instanceof LockUsedException) {
             result.setState(LOCK_USED);
-            result.setMessage("锁已被占用");
+            result.setMessage("锁被占用");
         }
         return result;
     }

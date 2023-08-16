@@ -1,6 +1,6 @@
 package com.twave.myapplication.controller;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.twave.myapplication.service.impl.SystemInfoServiceImpl;
 import com.twave.myapplication.util.JSONResult;
 import lombok.extern.slf4j.Slf4j;
