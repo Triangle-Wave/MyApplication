@@ -47,4 +47,12 @@ public class StatusCode {
      */
     public static final int LOCK_USED = 6008;
 
+    /**
+     * 文件后缀名错误
+     */
+    public static final int FILE_SUFFIX_ERROR = 6009;
+    /**
+     * 未知异常
+     */
+    public static final int UNKNOWN_EXCEPTION = 6010;
 }

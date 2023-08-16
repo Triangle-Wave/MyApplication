@@ -38,4 +38,12 @@ public class FileController extends BaseController {
         // 直接调用业务层的方法，将文件写入到response中
         fileService.downloadFile(response, fileName);
     }
+
+    @PostMapping("/uploadexcel")
+    public JSONResult<String> saveExcel(@RequestParam("file") MultipartFile file) {
+        // 调用业务层的方法，将文件保存到服务器设定的位置
+        fileService.uploadExcel(file);
+        // 如果上面的方法没有抛出异常，则执行成功，可以返回成功的状态码200和文本信息
+        return new JSONResult<>(REQUEST_SUCCESS, "文件上传成功");
+    }
 }

@@ -33,7 +33,8 @@ public class BaseController {
             UnknownHostException.class,
             FileNotExistException.class,
             FileIoException.class,
-            LockUsedException.class
+            LockUsedException.class,
+            FileSuffixException.class
     })
     public JSONResult<Void> handleException(Throwable e) {
         JSONResult<Void> result = new JSONResult<>();
@@ -60,7 +61,13 @@ public class BaseController {
             result.setMessage("文件读写异常");
         } else if (e instanceof LockUsedException) {
             result.setState(LOCK_USED);
-            result.setMessage("锁被占用");
+            result.setMessage("锁已被占用");
+        } else if (e instanceof FileSuffixException) {
+            result.setState(FILE_SUFFIX_ERROR);
+            result.setMessage("文件后缀名错误");
+        } else {
+            result.setState(UNKNOWN_EXCEPTION);
+            result.setMessage("未知错误");
         }
         return result;
     }
